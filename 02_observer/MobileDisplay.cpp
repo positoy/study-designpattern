@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 #include "MobileDisplay.hpp"
 
 void
@@ -10,9 +12,10 @@ MobileDisplay::display() {
 }
 
 void
-MobileDisplay::update(double t, double p, double h) {
-    temperature = t;
-    pressure = p;
-    humidity = h;
+MobileDisplay::update(void* data) {
+    std::vector<double>* v = static_cast<std::vector<double>*>(data);
+    temperature = v->at(0);
+    pressure = v->at(1);
+    humidity = v->at(2);
     display();
 }

@@ -6,5 +6,7 @@
 class StreetDisplay : public Observer, public IDisplay {
 public:
     void display();
-    void update(double temperature, double pressure, double humidity);
+    void update(void* data);
+private:
+    double temperature, pressure, humidity;
 };

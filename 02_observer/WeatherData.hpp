@@ -1,16 +1,12 @@
 #pragma once
 
+#include <vector>
 #include "Subject.hpp"
 
 class WeatherData : public Subject {
 public:
     WeatherData();
-    void setTemperature(double temperature);
-    void setPressure(double pressure);
-    void setHumidity(double humidity);
-
-public:
-    void notifyAllObservers();
+    void setMeasurements(double _temperature, double _pressure, double _humidity);
 
 private:
     double temperature, pressure, humidity;

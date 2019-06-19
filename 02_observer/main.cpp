@@ -10,11 +10,9 @@ int main()
     
     data.registerObserver(&streetDisplay);
     data.registerObserver(&mobileDisplay);
-    data.notifyAllObservers();
-
-    data.setTemperature(25.0);
-    data.setPressure(1080.0);
-    data.setHumidity(73.0);
-
-    data.notifyAllObservers();
+    data.setMeasurements(27.5, 1080.0, 73.8);
+    data.setMeasurements(28.5, 1080.0, 73.8);
+    data.setMeasurements(29.5, 1080.0, 73.8);
+    data.setMeasurements(30.5, 1080.0, 73.8);
+    data.setMeasurements(31.5, 1080.0, 73.8);
 }

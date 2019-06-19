@@ -14,3 +14,10 @@ Subject::deregisterObserver(Observer* observer){
         }
     }
 }
+
+void
+Subject::notifyAllObservers(void* data){
+    for (auto o : observers) {
+        o->update(data);
+    }
+}

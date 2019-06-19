@@ -7,7 +7,7 @@ class Subject {
 public:
     void registerObserver(Observer* observer);
     void deregisterObserver(Observer* observer);
-    virtual void notifyAllObservers() = 0;
+    void notifyAllObservers(void* data);
 protected:
     std::vector<Observer*> observers;
 };
