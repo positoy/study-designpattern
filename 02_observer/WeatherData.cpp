@@ -1,6 +1,6 @@
 #include <vector>
 
-#include "WeatherData.hpp"
+#include "WeatherData.h"
 
 WeatherData::WeatherData()
 : temperature{0},
@@ -22,4 +22,18 @@ WeatherData::setMeasurements(double _temperature, double _pressure, double _humi
 
     notifyAllObservers(data);
     delete v;
+}
+double
+WeatherData::getTemperature() {
+    return temperature;
+}
+
+double
+WeatherData::getPressure() {
+    return pressure;
+}
+
+double
+WeatherData::getHumidity() {
+    return humidity;
 }

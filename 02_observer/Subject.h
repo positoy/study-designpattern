@@ -1,7 +1,8 @@
 #pragma once
-
 #include <vector>
-#include "Observer.hpp"
+
+class Observer;
+#include "Observer.h"
 
 class Subject {
 public:

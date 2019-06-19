@@ -1,4 +1,4 @@
-#include "Subject.hpp"
+#include "Subject.h"
 
 void
 Subject::registerObserver(Observer* observer){
