@@ -10,7 +10,9 @@ public:
     double getTemperature();
     double getPressure();
     double getHumidity();
+    void changed();
 
 private:
     double temperature, pressure, humidity;
+    bool isChanged;
 };
