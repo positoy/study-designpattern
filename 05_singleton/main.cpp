@@ -18,6 +18,17 @@
     - early singleton
     - meyor's singleton
 
+    <<issues>>
+    초콜릿을 만드는 보일러 팩토리
+    boiler = new SingletonBoiler();
+    boiler->fill();
+    boiler->boil();
+    boiler->drain();
+
+    2개 이상의 스레드로 동작할 때 2가지 문제점이 잠재돼있다.
+    1) 싱글턴 인스턴스를 가져올 때 2개의 인스턴스가 생길 가능성
+    2) 1번이 발생하지 않았더라도, fill boil drain 작업 순서가 보장되지 않을 가능성.
+
  */
 
 class ClassA {
