@@ -1,51 +1,34 @@
 #include <iostream>
-
-class CaffeineBeverage {
+#include <cstdio>
+class Base {
 public:
-    void prepareRecipe() {
-        boilwater();
-        brew();
-        pourInCup();
-        addCondiment();
+    void templateMethod() {
+        originalFeatureA();
+        delegatedFeatureB();
+        optionalFeatureC();
+        if (somethingDecidedInRuntime())
+            hook();
     }
-protected:
-    void boilwater() {
-        std::cout << "boil water" << std::endl;
+    virtual void originalFeatureA() final { std::cout << "featureA" << std::endl; }
+    virtual void delegatedFeatureB() = 0;
+    virtual void optionalFeatureC() { std::cout << "featureC" << std::endl; }
+    bool somethingDecidedInRuntime() {
+        std::cout << "Need Something? (Y/N) : ";
+        if (getchar() == 'Y')
+            return true;
+        else
+            return false;
     }
-    virtual void brew() = 0;
-    void pourInCup() {
-        std::cout << "pour in cup" << std::endl;
-    }
-    virtual void addCondiment() = 0;
+    virtual void hook() {}
 };
 
-class Coffee : public CaffeineBeverage {
-protected:
-    void brew() {
-        std::cout << "brew jameican coffee" << std::endl;
-    }
-    void addCondiment() {
-        std::cout << "add milk" << std::endl;
-    }
+class Derived : public Base {
+    virtual void delegatedFeatureB() { std::cout << "deleagted featureB" << std::endl; }
+    // virtual void optionalFeatureC() { std::cout << "optional featureC" << std::endl; }
+    virtual void hook() { std::cout << "hook" << std::endl; }
 };
 
-
-class GreenTea : public CaffeineBeverage {
-protected:
-    void brew() {
-        std::cout << "add tea leaves" << std::endl;
-    }
-    void addCondiment() {
-        std::cout << "add cinnamon" << std::endl;
-    }
-};
-
-int main()
-{
-    CaffeineBeverage *b = new Coffee();
-    b->prepareRecipe();
-    
-    b = new GreenTea();
-    b->prepareRecipe();
-
+int main() {
+    Base *b = new Derived();
+    b->templateMethod();
 }
