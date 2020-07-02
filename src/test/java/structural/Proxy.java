@@ -1,7 +1,9 @@
+package structural;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import proxy.Cash;
-import proxy.CreditCard;
+import structural.proxy.Cash;
+import structural.proxy.CreditCard;
 
 public class Proxy {
 

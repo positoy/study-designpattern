@@ -1,8 +1,10 @@
+package behavioral;
+
 import org.junit.jupiter.api.Test;
-import strategy.Navigation;
-import strategy.RouterAdder;
-import strategy.RouterMultiplier;
-import strategy.RouterSubtracter;
+import behavioral.strategy.Navigation;
+import behavioral.strategy.RouterAdder;
+import behavioral.strategy.RouterMultiplier;
+import behavioral.strategy.RouterSubtracter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
