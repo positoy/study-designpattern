@@ -8,16 +8,15 @@ public class Adapter {
     @Test
     public void testAdapter() {
 
-        VoiceControlInterface voiceAdapter = null;
+        String json = "{ \"data\" : \"stockmarket data\" }";
+        String xml = "<Stock><MarketData/></Stock>";
 
-        voiceAdapter = new OnDeviceVoiceAdapter();
-        voiceAdapter.start();
-        voiceAdapter.stop();
-        voiceAdapter.cancel();
+        StockMarketInterface stockImpl;
 
-        voiceAdapter = new CloudVoiceAdapter();
-        voiceAdapter.start();
-        voiceAdapter.stop();
-        voiceAdapter.cancel();
+        stockImpl= new XMLStockMarketAdapter();
+        stockImpl.drawChart(xml);
+
+        stockImpl = new JSONStockMarketAdapter();
+        stockImpl.drawChart(json);
     }
 }
