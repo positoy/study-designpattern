@@ -1,4 +1,4 @@
-package structural;
+package creational;
 
 import creational.factory.*;
 import org.junit.jupiter.api.Test;
